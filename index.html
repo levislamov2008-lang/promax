@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PROMAX | Высотные работы | Челябинск · Екатеринбург · Москва</title>
+<meta name="description" content="Промышленный альпинизм PROMAX: монтаж, покраска, ремонт фасадов, мойка окон и другие высотные работы. Челябинск, Екатеринбург, Москва.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    box-sizing:border-box;
+    --bg:#0c0f12;
+    --bg2:#12161a;
+    --card:#161b20;
+    --line:#262d33;
+    --ink:#eef1f3;
+    --sub:#9aa5ad;
+    --accent:#ff6a1a;
+    --accent2:#ffb545;
+    --safety:#f4c430;
+    --pad:40px;
+  }
+  html{scroll-behavior:smooth;}
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Manrope',Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.stat-num{font-family:'Oswald',Arial,sans-serif; text-transform:uppercase; letter-spacing:.02em;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 var(--pad);}
+  .hairline{position:relative;}
+  .hairline::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);}
+
+  .tape{
+    height:10px;
+    background:repeating-linear-gradient(135deg,var(--safety) 0 18px, #191919 18px 36px);
+    opacity:.9;
+  }
+
+  /* ===================== HEADER ===================== */
+  header{
+    position:sticky; top:0; z-index:50;
+    padding-top:env(safe-area-inset-top,0px);
+    background:rgba(12,15,18,.94);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    gap:32px;
+    padding:14px 0;
+    min-height:84px;
+  }
+  .logo{
+    flex:0 0 auto;
+    display:block;
+  }
+  .logo img{
+    height:64px;
+    width:auto;
+    max-width:260px;
+    display:block;
+  }
+  nav.links{
+    flex:1 1 auto;
+    min-width:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:38px;
+    font-size:14px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    color:var(--sub);
+  }
+  nav.links a{white-space:nowrap;transition:color .15s;}
+  nav.links a:hover{color:var(--accent);}
+  .nav > .btn{flex:0 0 auto;}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    background:var(--accent); color:#111; font-weight:700;
+    padding:13px 24px; border-radius:3px;
+    font-size:13px; line-height:1;
+    text-transform:uppercase; letter-spacing:.04em;
+    border:1px solid var(--accent);
+    transition:.15s;
+    white-space:nowrap;
+    cursor:pointer;
+  }
+  .btn:hover{background:transparent;color:var(--accent);}
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line);}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+  /* ===================== HERO ===================== */
+  .hero{
+    position:relative;
+    padding:96px 0 104px;
+    background:
+      radial-gradient(circle at 85% 10%, rgba(255,106,26,.14), transparent 45%),
+      linear-gradient(180deg,var(--bg) 0%, var(--bg2) 100%);
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-120px;top:-60px;width:520px;height:520px;
+    background:conic-gradient(from 90deg,transparent,rgba(255,106,26,.08),transparent 60%);
+    border-radius:50%;
+    pointer-events:none;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;position:relative;}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--accent2);font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px;}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);flex:none;}
+  h1{font-size:clamp(32px,5vw,52px);line-height:1.05;margin:0 0 22px;font-weight:700;}
+  h1 em{font-style:normal;color:var(--accent);}
+  .hero p.lead{font-size:17px;line-height:1.6;color:var(--sub);max-width:520px;margin:0 0 34px;}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
+  .hero-stats{display:flex;gap:40px;flex-wrap:wrap;}
+  .hero-stats > div{min-width:130px;}
+  .stat-num{font-size:32px;color:var(--ink);font-weight:600;}
+  .stat-label{font-size:12.5px;color:var(--sub);text-transform:uppercase;letter-spacing:.04em;max-width:160px;}
+
+  .rig{
+    position:relative; aspect-ratio:4/5; border-radius:6px; overflow:hidden;
+    background:linear-gradient(160deg,#1a2027,#0e1114);
+    border:1px solid var(--line);
+    width:100%;
+  }
+  .rig svg{position:absolute;inset:0;width:100%;height:100%;}
+  .rig .tag{
+    position:absolute;left:18px;bottom:18px;right:18px;
+    background:rgba(12,15,18,.78); border:1px solid var(--line); border-radius:4px;
+    padding:14px 16px; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+    font-size:13px; color:var(--sub);
+  }
+  .rig .tag b{color:var(--ink);display:block;font-family:'Oswald';text-transform:uppercase;font-size:15px;margin-bottom:2px;}
+
+  /* ===================== SECTIONS ===================== */
+  section{padding:96px 0;}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head .eyebrow{margin-bottom:16px;}
+  .section-head h2{font-size:clamp(28px,3.4vw,36px);margin:0 0 16px;color:var(--ink);}
+  .section-head p{color:var(--sub);font-size:16px;line-height:1.6;margin:0;}
+  .bg-alt{background:var(--bg2);}
+
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .svc{background:var(--bg);padding:32px 28px;transition:.15s;}
+  .svc:hover{background:var(--card);}
+  .svc .num{font-family:'Oswald';color:var(--accent);font-size:13px;font-weight:600;letter-spacing:.05em;}
+  .svc h3{font-size:18px;margin:12px 0 10px;color:var(--ink);font-weight:600;text-transform:none;letter-spacing:0;}
+  .svc p{color:var(--sub);font-size:14.5px;line-height:1.55;margin:0;}
+
+  .why{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .why-card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:28px 24px;}
+  .why-card .ic{width:40px;height:40px;margin-bottom:18px;color:var(--accent);}
+  .why-card h3{font-size:16px;font-weight:600;text-transform:none;letter-spacing:0;margin:0 0 10px;color:var(--ink);}
+  .why-card p{color:var(--sub);font-size:14px;line-height:1.55;margin:0;}
+
+  .process{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .step .n{font-family:'Oswald';font-size:46px;font-weight:700;color:transparent;-webkit-text-stroke:1.5px var(--accent);margin-bottom:16px;line-height:1;}
+  .step h3{font-size:16px;font-weight:600;text-transform:none;letter-spacing:0;margin:0 0 10px;}
+  .step p{color:var(--sub);font-size:14px;line-height:1.55;margin:0;}
+
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-auto-rows:160px;
+    gap:12px;
+  }
+  .g-item{
+    position:relative;
+    border-radius:4px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    display:flex;
+    align-items:flex-end;
+    padding:16px;
+    background:linear-gradient(155deg,#1a1f26,#12151a);
+  }
+  .g-item.tall{grid-row:span 2;}
+  .g-item img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .g-item::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,rgba(0,0,0,0) 45%, rgba(0,0,0,.8) 100%);
+    pointer-events:none;
+  }
+  .g-item span{
+    position:relative;
+    z-index:2;
+    font-size:13px;
+    font-weight:600;
+    color:#fff;
+    text-shadow:0 2px 8px rgba(0,0,0,.6);
+  }
+
+  .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .news-card{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;}
+  .news-head{display:flex;align-items:center;gap:10px;padding:16px 18px 0;}
+  .news-ava{width:36px;height:36px;border-radius:50%;background:linear-gradient(140deg,var(--accent),#c94500);display:flex;align-items:center;justify-content:center;font-family:'Oswald';font-weight:700;font-size:13px;color:#111;flex-shrink:0;}
+    .news-ava{
+    width:36px;height:36px;border-radius:50%;
+    background:linear-gradient(140deg,var(--accent),#c94500);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Oswald';font-weight:700;font-size:13px;color:#111;flex-shrink:0;
+    overflow:hidden;
+  }
+  .news-ava img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    border-radius:50%;
+  }
+  .news-meta b{display:block;font-size:13.5px;font-weight:700;}
+  .news-meta span{display:block;font-size:11.5px;color:var(--sub);}
+  .news-thumb{
+    margin:16px 18px 0;
+    height:170px;
+    border-radius:6px;
+    background:linear-gradient(150deg,#1c222a,#101317);
+    border:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  .news-thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .news-body{padding:16px 18px 20px;font-size:14px;line-height:1.5;color:var(--ink);flex:1;}
+  .news-foot{display:flex;gap:16px;padding:0 18px 18px;font-size:12.5px;color:var(--sub);}
+  .vk-cta{
+    margin-top:40px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    background:var(--card);border:1px solid var(--line);border-radius:8px;padding:24px 28px;
+  }
+  .vk-cta p{margin:0;color:var(--sub);font-size:14.5px;}
+  .vk-cta strong{color:var(--ink);display:block;font-family:'Oswald';text-transform:uppercase;font-size:16px;margin-bottom:4px;}
+
+  .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+  .contact-list{display:flex;flex-direction:column;gap:24px;margin-top:28px;}
+  .contact-item{display:flex;gap:16px;align-items:flex-start;}
+  .contact-item .ic{width:22px;height:22px;color:var(--accent);flex-shrink:0;margin-top:2px;}
+  .contact-item b{display:block;font-size:15px;margin-bottom:2px;}
+  .contact-item span{color:var(--sub);font-size:14px;}
+  .phone-big{font-family:'Oswald';font-size:clamp(26px,3.4vw,36px);font-weight:600;color:var(--ink);display:inline-block;}
+  .phone-big:hover{color:var(--accent);}
+  .cities{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
+  .city-pill{border:1px solid var(--line);padding:6px 14px;border-radius:20px;font-size:13px;color:var(--sub);}
+
+  .cta-panel{background:linear-gradient(160deg,var(--card),#0e1114);border:1px solid var(--line);border-radius:10px;padding:36px;}
+  .cta-panel h3{font-size:22px;margin:0 0 12px;}
+  .cta-panel p{color:var(--sub);font-size:14.5px;line-height:1.6;margin:0 0 26px;}
+  .cta-panel .btn{width:100%;justify-content:center;padding:15px;font-size:13.5px;}
+  .cta-panel .btn.ghost{margin-top:12px;}
+
+  footer{border-top:1px solid var(--line);padding:36px 0;background:var(--bg2);}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .foot-row .logo img{height:44px;max-width:180px;}
+  footer p{color:var(--sub);font-size:12.5px;margin:0;}
+
+  /* ===================== ПЛАНШЕТ ===================== */
+  @media (max-width:1100px){
+    :root{--pad:32px;}
+    .nav{gap:24px;padding:12px 0;min-height:76px;}
+    .logo img{height:56px;max-width:220px;}
+    nav.links{gap:28px;font-size:13px;}
+    .btn{padding:12px 20px;font-size:12px;}
+  }
+
+  @media (max-width:1024px){
+    :root{--pad:28px;}
+    .nav{gap:20px;min-height:72px;}
+    .logo img{height:52px;max-width:200px;}
+    nav.links{gap:22px;font-size:12.5px;}
+    .hero{padding:72px 0 80px;}
+    section{padding:72px 0;}
+    .section-head{margin-bottom:44px;}
+    .hero-grid{gap:40px;}
+    .why{grid-template-columns:repeat(2,1fr);}
+    .gallery{grid-template-columns:repeat(3,1fr);grid-auto-rows:150px;}
+    .news-grid{grid-template-columns:repeat(2,1fr);}
+    .contact-wrap{gap:40px;}
+  }
+
+  /* Узкий планшет: меню скроллится в одну строку */
+  @media (max-width:900px){
+    :root{--pad:24px;}
+    .nav{gap:16px;}
+    .logo img{height:48px;max-width:180px;}
+    nav.links{
+      gap:20px;
+      font-size:12px;
+      justify-content:flex-start;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+      -ms-overflow-style:none;
+      padding:4px 0;
+      mask-image:linear-gradient(90deg,#000 calc(100% - 30px),transparent);
+      -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 30px),transparent);
+    }
+    nav.links::-webkit-scrollbar{display:none;}
+
+    .hero-grid{grid-template-columns:1fr;}
+    .rig{max-width:460px;margin:0 auto;}
+    .services{grid-template-columns:repeat(2,1fr);}
+    .process{grid-template-columns:repeat(2,1fr);gap:36px 24px;}
+    .contact-wrap{grid-template-columns:1fr;}
+    .cta-panel{max-width:640px;}
+  }
+
+  /* ===================== МОБИЛА: две строки ===================== */
+  @media (max-width:720px){
+    :root{--pad:18px;}
+
+    .nav{
+      flex-wrap:wrap;
+      gap:12px 14px;
+      padding:14px 0 0;
+      min-height:0;
+      align-items:center;
+      
+    }
+    .logo{order:1;margin-left: 30px;}
+    .logo img{height:44px;max-width:170px;}
+    .nav > .btn{
+      order:2;
+      margin-left:auto;
+      padding:11px 18px;
+      font-size:12px;
+      margin-right: 60px;
+    }
+    nav.links{
+      order:3;
+      flex:0 0 100%;
+      width:100%;
+      justify-content:flex-start;
+      gap:20px;
+      font-size:12px;
+      padding:14px 0 12px;
+      border-top:1px solid var(--line);
+      margin-top:2px;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+      -ms-overflow-style:none;
+      mask-image:linear-gradient(90deg,#000 calc(100% - 20px),transparent);
+      -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 20px),transparent);
+      margin-left: 60px;
+    }
+    nav.links::-webkit-scrollbar{display:none;}
+
+    .hero{padding:56px 0 64px;}
+    section{padding:64px 0;}
+    .section-head{margin-bottom:36px;}
+    .hero p.lead{font-size:15.5px;margin-bottom:28px;}
+    .hero-actions{gap:10px;margin-bottom:36px;}
+    .hero-actions .btn{flex:1 1 100%;}
+    .hero-stats{gap:24px 32px;}
+    .stat-num{font-size:28px;}
+
+    .services,
+    .why,
+    .process,
+    .news-grid{grid-template-columns:1fr;}
+    .process{gap:32px;}
+    .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;gap:10px;}
+    .g-item{padding:12px;}
+    .g-item span{font-size:12px;}
+    .news-thumb{height:200px;}
+
+    .vk-cta{padding:22px;gap:18px;}
+    .vk-cta .btn{width:100%;}
+    .cta-panel{padding:28px 22px;}
+    .cta-panel h3{font-size:19px;}
+
+    .foot-row{justify-content:center;text-align:center;}
+    footer{padding:28px 0;}
+    .foot-row .logo img{height:38px;}
+  }
+
+  @media (max-width:380px){
+    .gallery{grid-template-columns:1fr;}
+    .g-item.tall{grid-row:span 1;}
+    .logo img{height:38px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="PROMAX">
+      <img src="image/logo.png" alt="PROMAX">
+    </a>
+    <nav class="links">
+      <a href="#services">Услуги</a>
+      <a href="#why">Почему мы</a>
+      <a href="#works">Работы</a>
+      <a href="#news">Новости</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn" href="tel:+79940175493">Позвонить</a>
+  </div>
+  <div class="tape"></div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow"> Высотные работы |  Челябинск / ЕКБ / Москва</div>
+      <h1>Высотные работы<br>любой <em>сложности</em></h1>
+      <p class="lead">Команда промышленных альпинистов с допусками и удостоверениями. Монтаж, покраска, ремонт фасадов, мойка окон и другие работы на высоте — быстро, безопасно, по договору.</p>
+      <div class="hero-actions">
+        <a class="btn" href="tel:+79940175493">+7 (994) 017-54-93</a>
+        <a class="btn ghost" href="https://vk.ru/club240153067" target="_blank" rel="noopener">Группа ВКонтакте →</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">100%</div><div class="stat-label">Допуски и удостоверения альпинистов</div></div>
+        <div><div class="stat-num">3</div><div class="stat-label">Города: Челябинск, ЕКБ, Москва</div></div>
+        <div><div class="stat-num">Любая</div><div class="stat-label">Форма оплаты</div></div>
+      </div>
+    </div>
+    <div class="rig">
+      <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="wallg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#1c222a"/>
+            <stop offset="1" stop-color="#0c0f12"/>
+          </linearGradient>
+        </defs>
+        <rect width="400" height="500" fill="url(#wallg)"/>
+        <g stroke="#262d33" stroke-width="1">
+          <line x1="0" y1="100" x2="400" y2="100"/>
+          <line x1="0" y1="200" x2="400" y2="200"/>
+          <line x1="0" y1="300" x2="400" y2="300"/>
+          <line x1="0" y1="400" x2="400" y2="400"/>
+          <line x1="100" y1="0" x2="100" y2="500"/>
+          <line x1="200" y1="0" x2="200" y2="500"/>
+          <line x1="300" y1="0" x2="300" y2="500"/>
+        </g>
+        <line x1="260" y1="0" x2="260" y2="420" stroke="#ff6a1a" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round" opacity=".85"/>
+        <circle cx="260" cy="60" r="6" fill="#ff6a1a"/>
+        <g transform="translate(214,330)">
+          <circle cx="46" cy="18" r="16" fill="#f4c430"/>
+          <rect x="30" y="34" width="32" height="52" rx="10" fill="#e6e6e6"/>
+          <rect x="24" y="40" width="44" height="16" rx="6" fill="#ff6a1a"/>
+          <rect x="34" y="84" width="10" height="40" rx="4" fill="#3a4048" transform="rotate(8 34 84)"/>
+          <rect x="52" y="84" width="10" height="40" rx="4" fill="#3a4048" transform="rotate(-6 52 84)"/>
+          <rect x="18" y="46" width="10" height="36" rx="4" fill="#e6e6e6" transform="rotate(-24 18 46)"/>
+          <rect x="66" y="46" width="10" height="36" rx="4" fill="#e6e6e6" transform="rotate(20 66 46)"/>
+        </g>
+        <g opacity=".5">
+          <rect x="40" y="60" width="30" height="30" fill="none" stroke="#ff6a1a" stroke-width="1.5"/>
+          <rect x="320" y="220" width="26" height="26" fill="none" stroke="#f4c430" stroke-width="1.5"/>
+        </g>
+      </svg>
+      <div class="tag"><b>Канатный доступ</b>Без строительных лесов и остановки объекта — быстрый и безопасный подъём бригады на любую высоту.</div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Что мы делаем</div>
+      <h2>Все виды высотных работ</h2>
+      <p>Выполняем полный цикл — от монтажа и покраски до мойки окон и чистки кровель. Работаем на жилых, коммерческих и промышленных объектах.</p>
+    </div>
+    <div class="services">
+      <div class="svc"><div class="num">01</div><h3>Монтаж сэндвич-панелей</h3><p>Установка и ремонт фасадных сэндвич-панелей на высоте любой сложности.</p></div>
+      <div class="svc"><div class="num">02</div><h3>Металлоконструкции</h3><p>Монтаж, монтажно-высотные работы на металлических конструкциях зданий.</p></div>
+      <div class="svc"><div class="num">03</div><h3>Покраска фасадов</h3><p>Покраска жилых, промышленных зданий, фасадов и металлоконструкций.</p></div>
+      <div class="svc"><div class="num">04</div><h3>Вентиляция и освещение</h3><p>Монтаж вентиляционных коробов, светильников, замена ламп на высоте.</p></div>
+      <div class="svc"><div class="num">05</div><h3>Мытьё окон</h3><p>Мойка окон и остекления на любой высоте — жилые и коммерческие объекты.</p></div>
+      <div class="svc"><div class="num">06</div><h3>Демонтаж и монтаж</h3><p>Наружные кондиционеры, демонтаж рекламы и полифасадов.</p></div>
+      <div class="svc"><div class="num">07</div><h3>Фасадное остекление</h3><p>Ремонт: устранение протечек, продуваний, замена стеклопакетов.</p></div>
+      <div class="svc"><div class="num">08</div><h3>Негабаритные грузы</h3><p>Подъём плитки, столешниц, конструкций, украшений и других грузов.</p></div>
+      <div class="svc"><div class="num">09</div><h3>Водостоки и желоба</h3><p>Прочистка водосточных труб, очистка желобов от листвы и мусора.</p></div>
+      <div class="svc"><div class="num">10</div><h3>Промышленная покраска</h3><p>Покраска цехов, ангаров и промышленных помещений.</p></div>
+      <div class="svc"><div class="num">11</div><h3>Снег и сосульки</h3><p>Чистка снега и сосулек с кровель и карнизов в зимний период.</p></div>
+      <div class="svc"><div class="num">12</div><h3>Индивидуальные задачи</h3><p>Нестандартные высотные работы — обсудим и найдём решение.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-alt hairline" id="why">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Почему мы</div>
+      <h2>Работаем чётко и без сюрпризов</h2>
+      <p>Собственная бригада, вся необходимая техника и полное соблюдение техники безопасности на каждом объекте.</p>
+    </div>
+    <div class="why">
+      <div class="why-card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <h3>Всегда на связи</h3>
+        <p>Подскажем и найдём решение для сложных задач в любое время.</p>
+      </div>
+      <div class="why-card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg>
+        <h3>Безопасность и допуски</h3>
+        <p>Все необходимые допуски, удостоверения промышленных альпинистов, соблюдение норм ТБ.</p>
+      </div>
+      <div class="why-card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h3>Точные сроки</h3>
+        <p>Уважаем время заказчика и выполняем работу в чётко указанные сроки.</p>
+      </div>
+      <div class="why-card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3h18v13H7l-4 4V3z"/></svg>
+        <h3>Любая форма оплаты</h3>
+        <p>Работаем с физическими и юридическими лицами, гибкие условия оплаты.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Как мы работаем</div>
+      <h2>4 шага до результата</h2>
+    </div>
+    <div class="process">
+      <div class="step"><div class="n">01</div><h3>Заявка</h3><p>Звоните или пишите — уточняем задачу, адрес и сроки.</p></div>
+      <div class="step"><div class="n">02</div><h3>Осмотр объекта</h3><p>Оперативно выезжаем на осмотр и оцениваем условия работы.</p></div>
+      <div class="step"><div class="n">03</div><h3>Согласование</h3><p>Озвучиваем стоимость и сроки, согласуем детали и форму оплаты.</p></div>
+      <div class="step"><div class="n">04</div><h3>Выполнение работ</h3><p>Бригада выполняет работы с соблюдением техники безопасности.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-alt hairline" id="works">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Наши работы</div>
+      <h2>Объекты и направления</h2>
+      <p>Фото последних объектов — в нашей группе ВКонтакте. Вот направления, с которыми мы работаем чаще всего.</p>
+    </div>
+    <div class="gallery">
+      <div class="g-item tall g1">
+        <img src="image/M_X1eSHELwC_s8pSlW3lg2Nsqn6Ugcmkhs9eI9eDO7miYLUUnyyhC60-5BnIAvxGj3t_soR482mzTzsLeTLP0WP0.jpg" alt="Покраска фасадов" loading="lazy" onerror="this.style.display='none'">
+        <span>Покраска фасадов</span>
+      </div>
+      <div class="g-item g2">
+        <img src="image/BgBJZv26ysVScPq9_JH3oAmVDDUsZsO3FOXCsCOd9FMgATdJ6qHJaak2EJnePBsOfi446C0SAHT5eG7se4Dfka4A.jpg" alt="Металлоконструкции" loading="lazy" onerror="this.style.display='none'">
+        <span>Металлоконструкции</span>
+      </div>
+      <div class="g-item g3">
+        <img src="image/b17ogP0gWrB3nk3yrjZ4m5ZN9m345tR7cQ_F16l6DEfMdRD3GU3xckXW9E5IpJ3s1BpodF4tQCK82B5ZeJNEvOT_.jpg" alt="Мойка окон" loading="lazy" onerror="this.style.display='none'">
+        <span>Мойка окон</span>
+      </div>
+      <div class="g-item g4">
+        <img src="image/8imZeaJkBTnt911L6tYN8wOzFiZnUAeRE4j8YCh3Yzjg-5jGbHWVAuhfmkPR8bBm7Gn39lxq52VsceuMdSiCsCek.jpg" alt="Демонтаж рекламы" loading="lazy" onerror="this.style.display='none'">
+        <span>Демонтаж рекламы</span>
+      </div>
+      <div class="g-item tall g5">
+        <img src="image/IMG_1125.jpg" alt="Сэндвич-панели" loading="lazy" onerror="this.style.display='none'">
+        <span>Сэндвич-панели</span>
+      </div>
+      <div class="g-item g6">
+        <img src="image/IMG_0401.jpg" alt="Чистка кровель" loading="lazy" onerror="this.style.display='none'">
+        <span>Чистка кровель</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Новости</div>
+      <h2>Что у нас происходит</h2>
+      <p>Актуальные объекты, фотоотчёты и новости бригады мы публикуем в группе ВКонтакте — там же можно написать нам напрямую.</p>
+    </div>
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-head">
+  <div class="news-ava">
+    <img src="image/icon.png" alt="PROMAX" loading="lazy">
+  </div>
+  <div class="news-meta"><b>PROMAX | Высотные работы </b><span>Группа ВКонтакте</span></div>
+</div>
+        <div class="news-thumb">
+          <img src="image/UIN2REWebpLAAWUwcqdk6HchjMPlHecSmsJOFsUBc_T3NYldG8l1wO4a7PqgT1Bi_WQODu8S1f1JvZBA3damyvV3.jpg" alt="Новый объект PROMAX" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="news-body">Строительство Торгового ряда на 2000 «квадратов» в Екатеринбурге. Делимся свежим фотоотчетом с нашей площадки в Екатеринбурге, где мы возводим просторный торговый ряд</div>
+        <div class="news-foot"><a href="https://vk.ru/wall-240153067_25">👍 Нравится</a><a href="https://vk.ru/wall-240153067_25">💬 Комментировать</a></div>
+      </div>
+      <div class="news-card">
+        <div class="news-head">
+  <div class="news-ava">
+    <img src="image/icon.png" alt="PROMAX" loading="lazy">
+  </div>
+  <div class="news-meta"><b>PROMAX | Высотные работы </b><span>Группа ВКонтакте</span></div>
+</div>
+        <div class="news-thumb">
+          <img src="image/jKKEWIuHNi0AEuUI1-mRXUqszxSnr-5JGGigl2kvCgcTNQPswnvAf76nJghFKCcnFgu009_UsVwU9wM5rcCuBKfP.jpg" alt="Монтаж вентиляции PROMAX" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="news-body">Профессиональный монтаж стеновых сэндвич-панелей на объектах различного назначения: склады, ангары, производственные здания, торговые помещения, холодильные камеры, быстровозводимые здания и другие сооружения </div>
+        <div class="news-foot"><a href="https://vk.ru/wall-240153067_31">👍 Нравится</a><a href="https://vk.ru/wall-240153067_31">💬 Комментировать</a></div>
+      </div>
+      <div class="news-card">
+        <div class="news-head">
+  <div class="news-ava">
+    <img src="image/icon.png" alt="PROMAX" loading="lazy">
+  </div>
+  <div class="news-meta"><b>PROMAX | Высотные работы </b><span>Группа ВКонтакте</span></div>
+</div>
+        <div class="news-thumb">
+          <img src="image/VtePomNaO8XNhFq6B_96Dw-8PtoJC51orxJdoKDVmfYJKv-rN1PbYzRUydcRFn9qbHrcM_c3drC7m1h6lT1yhQrD.jpg" alt="Чистка кровель PROMAX" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="news-body">Летний падел-клуб Padel Space Leto расположен на крыше парковки ТРК «Родник»</div>
+        <div class="news-foot"><a href="https://vk.ru/wall-240153067_7">👍 Нравится</a><a href="https://vk.ru/wall-240153067_7">💬 Комментировать</a></div>
+      </div>
+    </div>
+    <div class="vk-cta">
+      <div><strong>Все новости и фотоотчёты — в ВК</strong><p>Свежие публикации, фото объектов и ответы на вопросы — в нашей официальной группе.</p></div>
+      <a class="btn" href="https://vk.ru/club240153067" target="_blank" rel="noopener">Открыть группу ВКонтакте</a>
+    </div>
+  </div>
+</section>
+
+<section class="bg-alt hairline" id="contacts">
+  <div class="wrap contact-wrap">
+    <div>
+      <div class="eyebrow">Контакты</div>
+      <h2 style="font-size:clamp(26px,3.4vw,34px);margin:0 0 12px;">Обсудим ваш объект</h2>
+      <p style="color:var(--sub);font-size:15px;line-height:1.6;max-width:440px;">Позвоните или напишите — оперативно приедем на осмотр и назовём сроки и стоимость.</p>
+      <div class="contact-list">
+        <div class="contact-item">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div><a class="phone-big" href="tel:+79940175493">+7 (994) 017-54-93</a></div>
+        </div>
+        <div class="contact-item">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          <div><b>ВКонтакте</b><span><a href="https://vk.ru/club240153067" target="_blank" rel="noopener">vk.ru/club240153067</a></span></div>
+        </div>
+        <div class="contact-item">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><b>География работ</b>
+            <div class="cities">
+              <span class="city-pill">Челябинск</span>
+              <span class="city-pill">Екатеринбург</span>
+              <span class="city-pill">Москва</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cta-panel">
+      <h3>Нужен расчёт по объекту?</h3>
+      <p>Позвоните напрямую или напишите в сообщения группы ВКонтакте — расскажите про задачу, пришлём примерную стоимость и сроки.</p>
+      <a class="btn" href="tel:+79940175493">Позвонить: +7 (994) 017-54-93</a>
+      <a class="btn ghost" href="https://vk.ru/club240153067" target="_blank" rel="noopener">Написать в сообщения ВК</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <a href="#top" class="logo" aria-label="PROMAX">
+      <img src="image/logo.png" alt="PROMAX">
+    </a>
+    <p>2026 PROMAX | Высотные работы | Челябинск / Екатеринбург / Москва.</p>
+    <a class="btn ghost" href="https://vk.ru/club240153067" target="_blank" rel="noopener" style="padding:9px 16px;font-size:12px;">VK</a>
+  </div>
+</footer>
+
+</body>
+</html>
