@@ -22,7 +22,8 @@
     --safety:#f4c430;
     --pad:40px;
   }
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth; -webkit-text-size-adjust:100%;}
+  html,body{max-width:100%;}
   *{box-sizing:border-box;}
   body{
     margin:0;
@@ -34,10 +35,7 @@
   }
   h1,h2,h3,.stat-num{font-family:'Oswald',Arial,sans-serif; text-transform:uppercase; letter-spacing:.02em;}
   a{color:inherit;text-decoration:none;}
-  img{max-width:100%;height:auto;}
-  html,body{max-width:100%;overflow-x:hidden;}
-  body{-webkit-text-size-adjust:100%;}
-  .wrap,.hero-grid,.services,.why,.process,.gallery,.news-grid,.contact-wrap{min-width:0;}
+  img{max-width:100%;}
   .wrap{max-width:1240px;margin:0 auto;padding:0 var(--pad);}
   .hairline{position:relative;}
   .hairline::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent);}
@@ -332,412 +330,118 @@
     .cta-panel{max-width:640px;}
   }
 
-
-  /* ===================== МОБИЛА: полноценная адаптация ===================== */
+  /* ===================== МОБИЛА: две строки ===================== */
   @media (max-width:720px){
-    :root{--pad:16px;}
+    :root{--pad:18px;}
 
-    html{
-      width:100%;
-      max-width:100%;
-      overflow-x:hidden;
-      -webkit-text-size-adjust:100%;
-    }
-
-    body{
-      width:100%;
-      max-width:100%;
-      min-width:0;
-      overflow-x:hidden;
-    }
-
-    .wrap{
-      width:100%;
-      max-width:100%;
-      margin:0 auto;
-      padding-left:var(--pad);
-      padding-right:var(--pad);
-    }
-
-    /* ---------- HEADER ---------- */
-    header{
-      position:sticky;
-      top:0;
-      z-index:50;
-      width:100%;
-      overflow:hidden;
-    }
-
+    /* Мобильная шапка: логотип + звонок, меню отдельной строкой */
+    header{overflow:hidden;}
     .nav{
-      display:grid;
-      grid-template-columns:minmax(0,1fr) auto;
-      align-items:center;
-      gap:12px;
       width:100%;
-      min-height:0;
-      padding:12px 0 0;
-    }
-
-    .logo{
       min-width:0;
-      width:max-content;
-      max-width:100%;
-      margin:0;
+      flex-wrap:wrap;
+      gap:0;
+      padding:12px 0 0;
+      min-height:0;
+      align-items:center;
+    }
+    .logo{
       order:1;
+      margin:0;
+      flex:0 0 auto;
+      min-width:0;
     }
-
     .logo img{
-      display:block;
+      height:44px;
       width:auto;
-      height:42px;
-      max-width:150px;
-      object-fit:contain;
+      max-width:145px;
     }
-
     .nav > .btn{
       order:2;
-      width:auto;
-      min-height:48px;
-      margin:0;
+      margin:0 0 0 auto;
       padding:12px 18px;
+      min-height:44px;
       font-size:12px;
-      flex:none;
     }
-
     nav.links{
       order:3;
-      grid-column:1 / -1;
-      display:flex;
-      align-items:center;
-      justify-content:flex-start;
+      flex:0 0 100%;
       width:100%;
-      min-width:0;
       max-width:100%;
-      margin:10px 0 0;
-      padding:13px 0 12px;
+      min-width:0;
+      justify-content:flex-start;
       gap:24px;
+      font-size:12px;
+      padding:14px 0 12px;
+      margin:12px 0 0;
       border-top:1px solid var(--line);
       overflow-x:auto;
       overflow-y:hidden;
       -webkit-overflow-scrolling:touch;
       scrollbar-width:none;
       -ms-overflow-style:none;
-      mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 22px),transparent 100%);
-      -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 22px),transparent 100%);
+      mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 20px),transparent 100%);
+      -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 20px),transparent 100%);
     }
-
     nav.links::-webkit-scrollbar{display:none;}
+    nav.links a{flex:0 0 auto;}
 
-    nav.links a{
-      flex:0 0 auto;
-      white-space:nowrap;
-      font-size:13px;
-      line-height:1;
-      padding:2px 0;
-    }
-
-    .tape{
-      height:8px;
-      width:100%;
-    }
-
-    /* ---------- HERO ---------- */
-    .hero{
-      padding:48px 0 56px;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:minmax(0,1fr);
-      gap:38px;
-      width:100%;
-    }
-
-    .hero-grid > *{
-      min-width:0;
-    }
-
-    .eyebrow{
-      max-width:100%;
-      font-size:11px;
-      line-height:1.5;
-      letter-spacing:.09em;
-      margin-bottom:14px;
-    }
-
-    .eyebrow::before{
-      width:20px;
-    }
-
-    h1{
-      max-width:100%;
-      font-size:clamp(38px,11vw,48px);
-      line-height:.98;
-      overflow-wrap:anywhere;
-      margin-bottom:18px;
-    }
-
-    .hero p.lead{
-      max-width:100%;
-      font-size:15px;
-      line-height:1.55;
-      margin-bottom:24px;
-    }
-
-    .hero-actions{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:10px;
-      margin-bottom:30px;
-    }
-
-    .hero-actions .btn{
-      width:100%;
-      min-height:50px;
-      padding:14px 16px;
-    }
-
-    .hero-stats{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:24px 18px;
-    }
-
-    .hero-stats > div{
-      min-width:0;
-    }
-
-    .hero-stats > div:last-child{
-      grid-column:1 / -1;
-    }
-
-    .stat-num{
-      font-size:28px;
-    }
-
-    .stat-label{
-      max-width:100%;
-      font-size:11.5px;
-      line-height:1.45;
-    }
-
-    .rig{
-      width:100%;
-      max-width:none;
-      aspect-ratio:4 / 5;
-      min-width:0;
-      margin:0;
-    }
-
-    .rig .tag{
-      left:12px;
-      right:12px;
-      bottom:12px;
-      padding:13px 14px;
-      font-size:13px;
-      line-height:1.5;
-    }
-
-    .rig .tag b{
-      font-size:16px;
-      margin-bottom:4px;
-    }
-
-    /* ---------- SECTIONS ---------- */
-    section{
-      padding:56px 0;
-    }
-
-    .section-head{
-      width:100%;
-      max-width:100%;
-      margin-bottom:30px;
-    }
-
-    .section-head h2{
-      font-size:clamp(28px,8vw,34px);
-      line-height:1.05;
-    }
-
-    .section-head p{
-      font-size:15px;
-      line-height:1.55;
-    }
+    .hero{padding:56px 0 64px;}
+    section{padding:64px 0;}
+    .section-head{margin-bottom:36px;}
+    .hero p.lead{font-size:15.5px;margin-bottom:28px;}
+    .hero-actions{gap:10px;margin-bottom:36px;}
+    .hero-actions .btn{flex:1 1 100%;min-height:48px;}
+    .hero-stats{gap:24px 32px;}
+    .stat-num{font-size:28px;}
 
     .services,
     .why,
     .process,
-    .news-grid{
-      grid-template-columns:minmax(0,1fr);
-      width:100%;
-      min-width:0;
-    }
+    .news-grid{grid-template-columns:1fr;}
+    .process{gap:32px;}
 
-    .svc{
-      min-width:0;
-      padding:24px 20px;
-    }
-
-    .svc h3{
-      font-size:18px;
-      line-height:1.25;
-    }
-
-    .why{
+    .gallery{
+      grid-template-columns:1fr;
+      grid-auto-rows:auto;
       gap:12px;
     }
-
-    .why-card{
-      padding:22px 20px;
-    }
-
-    .process{
-      gap:30px;
-    }
-
-    .gallery{
-      grid-template-columns:1fr 1fr;
-      grid-auto-rows:145px;
-      gap:8px;
-      width:100%;
-      min-width:0;
-    }
-
-    .g-item{
-      min-width:0;
-      padding:11px;
-    }
-
-    .g-item.tall{
-      grid-row:span 2;
-    }
-
-    .g-item span{
-      font-size:11px;
-      line-height:1.2;
-    }
-
-    .news-card{
-      min-width:0;
-    }
-
-    .news-thumb{
-      height:210px;
-    }
-
-    .news-body{
-      font-size:14px;
-    }
-
-    .vk-cta{
-      align-items:stretch;
-      padding:20px;
-    }
-
-    .vk-cta > div{
-      min-width:0;
-    }
-
-    .vk-cta .btn{
-      width:100%;
-      min-height:48px;
-    }
-
-    .contact-wrap{
-      grid-template-columns:minmax(0,1fr);
-      gap:36px;
-    }
-
-    .cta-panel{
-      width:100%;
-      max-width:none;
-      padding:24px 20px;
-    }
-
-    .cta-panel .btn{
-      min-height:48px;
-      width:100%;
-    }
-
-    .phone-big{
-      font-size:clamp(25px,7vw,32px);
-      overflow-wrap:anywhere;
-    }
-
-    .cities{
-      gap:8px;
-    }
-
-    .city-pill{
-      padding:6px 12px;
-    }
-
-    footer{
-      padding:28px 0;
-    }
-
-    .foot-row{
-      flex-direction:column;
-      justify-content:center;
-      text-align:center;
-    }
-
-    .foot-row .logo img{
-      height:38px;
-    }
-  }
-
-  @media (max-width:390px){
-    :root{--pad:14px;}
-
-    .nav{
-      grid-template-columns:minmax(0,1fr) auto;
-      gap:8px;
-    }
-
-    .logo img{
-      height:38px;
-      max-width:135px;
-    }
-
-    .nav > .btn{
-      min-height:46px;
-      padding:11px 15px;
-      font-size:11px;
-    }
-
-    nav.links{
-      gap:20px;
-      font-size:12px;
-    }
-
-    .hero{
-      padding-top:42px;
-    }
-
-    h1{
-      font-size:clamp(35px,10.5vw,43px);
-    }
-
-    .hero-stats{
-      grid-template-columns:1fr;
-      gap:18px;
-    }
-
-    .hero-stats > div:last-child{
-      grid-column:auto;
-    }
-
-    .gallery{
-      grid-template-columns:1fr;
-      grid-auto-rows:190px;
-    }
-
+    .g-item,
     .g-item.tall{
       grid-row:span 1;
+      aspect-ratio:16/10;
+      min-height:0;
     }
+    .g-item{padding:14px;}
+    .g-item span{font-size:13px;}
+    .news-thumb{height:200px;}
+
+    /* На телефоне подпись не перекрывает человека в иллюстрации */
+    .rig{max-width:none;}
+    .rig .tag{
+      left:14px;
+      right:14px;
+      bottom:14px;
+      padding:14px 16px;
+      font-size:13px;
+    }
+    .rig .tag b{font-size:17px;margin-bottom:4px;}
+
+    .vk-cta{padding:22px;gap:18px;}
+    .vk-cta .btn{width:100%;}
+    .cta-panel{padding:28px 22px;}
+    .cta-panel h3{font-size:19px;}
+
+    .foot-row{justify-content:center;text-align:center;}
+    footer{padding:28px 0;}
+    .foot-row .logo img{height:38px;}
   }
 
+  @media (max-width:380px){
+    .gallery{grid-template-columns:1fr;}
+    .g-item.tall{grid-row:span 1;}
+    .logo img{height:38px;}
+  }
 </style>
 </head>
 <body>
@@ -745,7 +449,7 @@
 <header>
   <div class="wrap nav">
     <a href="#top" class="logo" aria-label="PROMAX">
-      <img src="image/logo-600.webp" alt="PROMAX">
+      <img src="image/logo.png" alt="PROMAX">
     </a>
     <nav class="links">
       <a href="#services">Услуги</a>
@@ -795,7 +499,7 @@
         </g>
         <line x1="260" y1="0" x2="260" y2="420" stroke="#ff6a1a" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round" opacity=".85"/>
         <circle cx="260" cy="60" r="6" fill="#ff6a1a"/>
-        <g transform="translate(214,330)">
+        <g class="rope-person" transform="translate(214,250)">
           <circle cx="46" cy="18" r="16" fill="#f4c430"/>
           <rect x="30" y="34" width="32" height="52" rx="10" fill="#e6e6e6"/>
           <rect x="24" y="40" width="44" height="16" rx="6" fill="#ff6a1a"/>
@@ -894,27 +598,27 @@
     </div>
     <div class="gallery">
       <div class="g-item tall g1">
-        <img src="image/M_X1eSHELwC_s8pSlW3lg2Nsqn6Ugcmkhs9eI9eDO7miYLUUnyyhC60-5BnIAvxGj3t_soR482mzTzsLeTLP0WP0-800.webp" srcset="image/M_X1eSHELwC_s8pSlW3lg2Nsqn6Ugcmkhs9eI9eDO7miYLUUnyyhC60-5BnIAvxGj3t_soR482mzTzsLeTLP0WP0-800.webp 800w, image/M_X1eSHELwC_s8pSlW3lg2Nsqn6Ugcmkhs9eI9eDO7miYLUUnyyhC60-5BnIAvxGj3t_soR482mzTzsLeTLP0WP0-1400.webp 1400w" sizes="(max-width: 720px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="Покраска фасадов" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        <img src="image/M_X1eSHELwC_s8pSlW3lg2Nsqn6Ugcmkhs9eI9eDO7miYLUUnyyhC60-5BnIAvxGj3t_soR482mzTzsLeTLP0WP0.jpg" alt="Покраска фасадов" loading="lazy" onerror="this.style.display='none'">
         <span>Покраска фасадов</span>
       </div>
       <div class="g-item g2">
-        <img src="image/BgBJZv26ysVScPq9_JH3oAmVDDUsZsO3FOXCsCOd9FMgATdJ6qHJaak2EJnePBsOfi446C0SAHT5eG7se4Dfka4A-800.webp" srcset="image/BgBJZv26ysVScPq9_JH3oAmVDDUsZsO3FOXCsCOd9FMgATdJ6qHJaak2EJnePBsOfi446C0SAHT5eG7se4Dfka4A-800.webp 800w, image/BgBJZv26ysVScPq9_JH3oAmVDDUsZsO3FOXCsCOd9FMgATdJ6qHJaak2EJnePBsOfi446C0SAHT5eG7se4Dfka4A-1400.webp 1400w" sizes="(max-width: 720px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="Металлоконструкции" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        <img src="image/BgBJZv26ysVScPq9_JH3oAmVDDUsZsO3FOXCsCOd9FMgATdJ6qHJaak2EJnePBsOfi446C0SAHT5eG7se4Dfka4A.jpg" alt="Металлоконструкции" loading="lazy" onerror="this.style.display='none'">
         <span>Металлоконструкции</span>
       </div>
       <div class="g-item g3">
-        <img src="image/b17ogP0gWrB3nk3yrjZ4m5ZN9m345tR7cQ_F16l6DEfMdRD3GU3xckXW9E5IpJ3s1BpodF4tQCK82B5ZeJNEvOT_-800.webp" srcset="image/b17ogP0gWrB3nk3yrjZ4m5ZN9m345tR7cQ_F16l6DEfMdRD3GU3xckXW9E5IpJ3s1BpodF4tQCK82B5ZeJNEvOT_-800.webp 800w, image/b17ogP0gWrB3nk3yrjZ4m5ZN9m345tR7cQ_F16l6DEfMdRD3GU3xckXW9E5IpJ3s1BpodF4tQCK82B5ZeJNEvOT_-1400.webp 1400w" sizes="(max-width: 720px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="Мойка окон" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        <img src="image/b17ogP0gWrB3nk3yrjZ4m5ZN9m345tR7cQ_F16l6DEfMdRD3GU3xckXW9E5IpJ3s1BpodF4tQCK82B5ZeJNEvOT_.jpg" alt="Мойка окон" loading="lazy" onerror="this.style.display='none'">
         <span>Мойка окон</span>
       </div>
       <div class="g-item g4">
-        <img src="image/8imZeaJkBTnt911L6tYN8wOzFiZnUAeRE4j8YCh3Yzjg-5jGbHWVAuhfmkPR8bBm7Gn39lxq52VsceuMdSiCsCek-800.webp" srcset="image/8imZeaJkBTnt911L6tYN8wOzFiZnUAeRE4j8YCh3Yzjg-5jGbHWVAuhfmkPR8bBm7Gn39lxq52VsceuMdSiCsCek-800.webp 800w, image/8imZeaJkBTnt911L6tYN8wOzFiZnUAeRE4j8YCh3Yzjg-5jGbHWVAuhfmkPR8bBm7Gn39lxq52VsceuMdSiCsCek-1400.webp 1400w" sizes="(max-width: 720px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="Демонтаж рекламы" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        <img src="image/8imZeaJkBTnt911L6tYN8wOzFiZnUAeRE4j8YCh3Yzjg-5jGbHWVAuhfmkPR8bBm7Gn39lxq52VsceuMdSiCsCek.jpg" alt="Демонтаж рекламы" loading="lazy" onerror="this.style.display='none'">
         <span>Демонтаж рекламы</span>
       </div>
       <div class="g-item tall g5">
-        <img src="image/IMG_1125-800.webp" srcset="image/IMG_1125-800.webp 800w, image/IMG_1125-1400.webp 1400w" sizes="(max-width: 720px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="Сэндвич-панели" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        <img src="image/IMG_1125.jpg" alt="Сэндвич-панели" loading="lazy" onerror="this.style.display='none'">
         <span>Сэндвич-панели</span>
       </div>
       <div class="g-item g6">
-        <img src="image/IMG_0401-800.webp" srcset="image/IMG_0401-800.webp 800w, image/IMG_0401-1400.webp 1400w" sizes="(max-width: 720px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="Чистка кровель" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        <img src="image/IMG_0401.jpg" alt="Чистка кровель" loading="lazy" onerror="this.style.display='none'">
         <span>Чистка кровель</span>
       </div>
     </div>
@@ -932,12 +636,12 @@
       <div class="news-card">
         <div class="news-head">
   <div class="news-ava">
-    <img src="image/icon-600.webp" alt="PROMAX" loading="lazy" decoding="async">
+    <img src="image/icon.png" alt="PROMAX" loading="lazy">
   </div>
   <div class="news-meta"><b>PROMAX | Высотные работы </b><span>Группа ВКонтакте</span></div>
 </div>
         <div class="news-thumb">
-          <img src="image/UIN2REWebpLAAWUwcqdk6HchjMPlHecSmsJOFsUBc_T3NYldG8l1wO4a7PqgT1Bi_WQODu8S1f1JvZBA3damyvV3-800.webp" srcset="image/UIN2REWebpLAAWUwcqdk6HchjMPlHecSmsJOFsUBc_T3NYldG8l1wO4a7PqgT1Bi_WQODu8S1f1JvZBA3damyvV3-800.webp 800w, image/UIN2REWebpLAAWUwcqdk6HchjMPlHecSmsJOFsUBc_T3NYldG8l1wO4a7PqgT1Bi_WQODu8S1f1JvZBA3damyvV3-1400.webp 1400w" sizes="(max-width: 720px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="Новый объект PROMAX" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <img src="image/UIN2REWebpLAAWUwcqdk6HchjMPlHecSmsJOFsUBc_T3NYldG8l1wO4a7PqgT1Bi_WQODu8S1f1JvZBA3damyvV3.jpg" alt="Новый объект PROMAX" loading="lazy" onerror="this.style.display='none'">
         </div>
         <div class="news-body">Строительство Торгового ряда на 2000 «квадратов» в Екатеринбурге. Делимся свежим фотоотчетом с нашей площадки в Екатеринбурге, где мы возводим просторный торговый ряд</div>
         <div class="news-foot"><a href="https://vk.ru/wall-240153067_25">👍 Нравится</a><a href="https://vk.ru/wall-240153067_25">💬 Комментировать</a></div>
@@ -945,12 +649,12 @@
       <div class="news-card">
         <div class="news-head">
   <div class="news-ava">
-    <img src="image/icon-600.webp" alt="PROMAX" loading="lazy" decoding="async">
+    <img src="image/icon.png" alt="PROMAX" loading="lazy">
   </div>
   <div class="news-meta"><b>PROMAX | Высотные работы </b><span>Группа ВКонтакте</span></div>
 </div>
         <div class="news-thumb">
-          <img src="image/jKKEWIuHNi0AEuUI1-mRXUqszxSnr-5JGGigl2kvCgcTNQPswnvAf76nJghFKCcnFgu009_UsVwU9wM5rcCuBKfP-800.webp" srcset="image/jKKEWIuHNi0AEuUI1-mRXUqszxSnr-5JGGigl2kvCgcTNQPswnvAf76nJghFKCcnFgu009_UsVwU9wM5rcCuBKfP-800.webp 800w, image/jKKEWIuHNi0AEuUI1-mRXUqszxSnr-5JGGigl2kvCgcTNQPswnvAf76nJghFKCcnFgu009_UsVwU9wM5rcCuBKfP-1400.webp 1400w" sizes="(max-width: 720px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="Монтаж вентиляции PROMAX" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <img src="image/jKKEWIuHNi0AEuUI1-mRXUqszxSnr-5JGGigl2kvCgcTNQPswnvAf76nJghFKCcnFgu009_UsVwU9wM5rcCuBKfP.jpg" alt="Монтаж вентиляции PROMAX" loading="lazy" onerror="this.style.display='none'">
         </div>
         <div class="news-body">Профессиональный монтаж стеновых сэндвич-панелей на объектах различного назначения: склады, ангары, производственные здания, торговые помещения, холодильные камеры, быстровозводимые здания и другие сооружения </div>
         <div class="news-foot"><a href="https://vk.ru/wall-240153067_31">👍 Нравится</a><a href="https://vk.ru/wall-240153067_31">💬 Комментировать</a></div>
@@ -958,12 +662,12 @@
       <div class="news-card">
         <div class="news-head">
   <div class="news-ava">
-    <img src="image/icon-600.webp" alt="PROMAX" loading="lazy" decoding="async">
+    <img src="image/icon.png" alt="PROMAX" loading="lazy">
   </div>
   <div class="news-meta"><b>PROMAX | Высотные работы </b><span>Группа ВКонтакте</span></div>
 </div>
         <div class="news-thumb">
-          <img src="image/VtePomNaO8XNhFq6B_96Dw-8PtoJC51orxJdoKDVmfYJKv-rN1PbYzRUydcRFn9qbHrcM_c3drC7m1h6lT1yhQrD-800.webp" srcset="image/VtePomNaO8XNhFq6B_96Dw-8PtoJC51orxJdoKDVmfYJKv-rN1PbYzRUydcRFn9qbHrcM_c3drC7m1h6lT1yhQrD-800.webp 800w, image/VtePomNaO8XNhFq6B_96Dw-8PtoJC51orxJdoKDVmfYJKv-rN1PbYzRUydcRFn9qbHrcM_c3drC7m1h6lT1yhQrD-1400.webp 1400w" sizes="(max-width: 720px) 100vw, (max-width: 1024px) 50vw, 33vw" alt="Чистка кровель PROMAX" loading="lazy" decoding="async" onerror="this.style.display='none'">
+          <img src="image/VtePomNaO8XNhFq6B_96Dw-8PtoJC51orxJdoKDVmfYJKv-rN1PbYzRUydcRFn9qbHrcM_c3drC7m1h6lT1yhQrD.jpg" alt="Чистка кровель PROMAX" loading="lazy" onerror="this.style.display='none'">
         </div>
         <div class="news-body">Летний падел-клуб Padel Space Leto расположен на крыше парковки ТРК «Родник»</div>
         <div class="news-foot"><a href="https://vk.ru/wall-240153067_7">👍 Нравится</a><a href="https://vk.ru/wall-240153067_7">💬 Комментировать</a></div>
@@ -1015,7 +719,7 @@
 <footer>
   <div class="wrap foot-row">
     <a href="#top" class="logo" aria-label="PROMAX">
-      <img src="image/logo-600.webp" alt="PROMAX">
+      <img src="image/logo.png" alt="PROMAX">
     </a>
     <p>2026 PROMAX | Высотные работы | Челябинск / Екатеринбург / Москва.</p>
     <a class="btn ghost" href="https://vk.ru/club240153067" target="_blank" rel="noopener" style="padding:9px 16px;font-size:12px;">VK</a>
