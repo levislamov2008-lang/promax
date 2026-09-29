@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>PROMAX | Высотные работы | Челябинск · Екатеринбург · Москва</title>
-<meta name="description" content="Промышленный альпинизм PROMAX: монтаж, покраска, ремонт фасадов, мойка окон и другие высотные работы. Челябинск, Екатеринбург, Москва.">
+<title>PROMAX | Высотные работы | Челябинск · Екатеринбург · Владивосток</title>
+<meta name="description" content="PROMAX — промышленный альпинизм и высотные работы: монтаж сэндвич-панелей и ограждающих конструкций, покраска зданий и фасадов, ремонт вентилируемых фасадов, контурное освещение и огнезащита резервуаров. Челябинская область, Челябинск, Екатеринбург, Владивосток.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="author" content="PROMAX — Высотные работы">
 <meta name="theme-color" content="#0c0f12">
@@ -15,11 +15,11 @@
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="PROMAX">
 <meta property="og:title" content="PROMAX — высотные работы">
-<meta property="og:description" content="Промышленный альпинизм: монтаж, покраска, ремонт фасадов, мойка окон и другие высотные работы. Челябинск, Екатеринбург, Москва.">
+<meta property="og:description" content="PROMAX — монтаж сэндвич-панелей и ограждающих конструкций, покраска зданий и фасадов, ремонт вентилируемых фасадов, контурное освещение и огнезащита резервуаров.">
 <meta property="og:image" content="image/logo.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PROMAX — высотные работы">
-<meta name="twitter:description" content="Промышленный альпинизм: монтаж, покраска, ремонт фасадов, мойка окон и другие высотные работы. Челябинск, Екатеринбург, Москва.">
+<meta name="twitter:description" content="PROMAX — монтаж сэндвич-панелей и ограждающих конструкций, покраска зданий и фасадов, ремонт вентилируемых фасадов, контурное освещение и огнезащита резервуаров.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -190,8 +190,8 @@
 
   .gallery{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    grid-auto-rows:160px;
+    grid-template-columns:repeat(3,1fr);
+    grid-auto-rows:220px;
     gap:12px;
   }
   .g-item{
@@ -211,13 +211,14 @@
     width:100%;
     height:100%;
     object-fit:cover;
+    object-position:center;
     display:block;
   }
   .g-item::after{
     content:"";
     position:absolute;
     inset:0;
-    background:linear-gradient(180deg,rgba(0,0,0,0) 45%, rgba(0,0,0,.8) 100%);
+    background:linear-gradient(180deg,rgba(0,0,0,0) 42%, rgba(0,0,0,.82) 100%);
     pointer-events:none;
   }
   .g-item span{
@@ -314,7 +315,7 @@
     .section-head{margin-bottom:44px;}
     .hero-grid{gap:40px;}
     .why{grid-template-columns:repeat(2,1fr);}
-    .gallery{grid-template-columns:repeat(3,1fr);grid-auto-rows:150px;}
+    .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px;}
     .news-grid{grid-template-columns:repeat(2,1fr);}
     .contact-wrap{gap:40px;}
   }
@@ -465,27 +466,28 @@
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "PROMAX — Высотные работы",
-  "description": "Промышленный альпинизм: монтаж, покраска, ремонт фасадов, мойка окон и другие высотные работы.",
+  "description": "Промышленный альпинизм и высотные работы: монтаж сэндвич-панелей и ограждающих конструкций, покраска, ремонт фасадов, освещение и огнезащита.",
   "telephone": "+7-994-017-54-93",
   "url": "https://promax74.ru/",
   "image": "https://promax74.ru/image/logo.png",
   "areaServed": [
+    {"@type":"AdministrativeArea","name":"Челябинская область"},
     {"@type":"City","name":"Челябинск"},
     {"@type":"City","name":"Екатеринбург"},
-    {"@type":"City","name":"Москва"}
+    {"@type":"City","name":"Владивосток"}
   ],
-  "sameAs": [
-    "https://vk.ru/club240153067"
-  ],
+  "sameAs": ["https://vk.ru/club240153067"],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Высотные работы",
     "itemListElement": [
       {"@type":"Offer","itemOffered":{"@type":"Service","name":"Монтаж сэндвич-панелей"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Монтаж ограждающих конструкций"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Металлоконструкции"}},
       {"@type":"Offer","itemOffered":{"@type":"Service","name":"Покраска фасадов"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Мытьё окон"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Монтаж металлоконструкций"}},
-      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Демонтаж и монтаж"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Ремонт вентилируемых фасадов"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Монтаж контурного освещения"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Огнезащита резервуаров"}},
       {"@type":"Offer","itemOffered":{"@type":"Service","name":"Очистка кровель и водостоков"}}
     ]
   }
@@ -537,17 +539,17 @@ document.addEventListener('click', function(event) {
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow"> Высотные работы |  Челябинск / ЕКБ / Москва</div>
+      <div class="eyebrow">Промышленный альпинизм | Челябинская область / Челябинск / Екатеринбург / Владивосток</div>
       <h1>Высотные работы<br>любой <em>сложности</em></h1>
-      <p class="lead">Команда промышленных альпинистов с допусками и удостоверениями. Монтаж, покраска, ремонт фасадов, мойка окон и другие работы на высоте — быстро, безопасно, по договору.</p>
+      <p class="lead">Команда промышленных альпинистов с допусками и удостоверениями. Монтаж сэндвич-панелей, покраска фасадов, монтаж ограждающих конструкций и другие работы на высоте — быстро, безопасно, по договору.</p>
       <div class="hero-actions">
         <a class="btn" href="tel:+79940175493" data-metrika-goal="phone_click">+7 (994) 017-54-93</a>
         <a class="btn ghost" href="https://vk.ru/club240153067" data-metrika-goal="vk_click" target="_blank" rel="noopener">Группа ВКонтакте →</a>
       </div>
       <div class="hero-stats">
-        <div><div class="stat-num">100%</div><div class="stat-label">Допуски и удостоверения альпинистов</div></div>
-        <div><div class="stat-num">3</div><div class="stat-label">Города: Челябинск, ЕКБ, Москва</div></div>
-        <div><div class="stat-num">Любая</div><div class="stat-label">Форма оплаты</div></div>
+        <div><div class="stat-num">10+</div><div class="stat-label">Лет опыта работы бригады</div></div>
+        <div><div class="stat-num">4</div><div class="stat-label">Направления и города присутствия</div></div>
+        <div><div class="stat-num">100%</div><div class="stat-label">Допуски, удостоверения и соблюдение ТБ</div></div>
       </div>
     </div>
     <div class="rig">
@@ -594,21 +596,18 @@ document.addEventListener('click', function(event) {
     <div class="section-head">
       <div class="eyebrow">Что мы делаем</div>
       <h2>Все виды высотных работ</h2>
-      <p>Выполняем полный цикл — от монтажа и покраски до мойки окон и чистки кровель. Работаем на жилых, коммерческих и промышленных объектах.</p>
+      <p>Выполняем полный цикл — от монтажа сэндвич-панелей и ограждающих конструкций до покраски фасадов зданий. Работаем на жилых, коммерческих и промышленных объектах.</p>
     </div>
     <div class="services">
       <div class="svc"><div class="num">01</div><h3>Монтаж сэндвич-панелей</h3><p>Установка и ремонт фасадных сэндвич-панелей на высоте любой сложности.</p></div>
-      <div class="svc"><div class="num">02</div><h3>Металлоконструкции</h3><p>Монтаж, монтажно-высотные работы на металлических конструкциях зданий.</p></div>
-      <div class="svc"><div class="num">03</div><h3>Покраска фасадов</h3><p>Покраска жилых, промышленных зданий, фасадов и металлоконструкций.</p></div>
-      <div class="svc"><div class="num">04</div><h3>Вентиляция и освещение</h3><p>Монтаж вентиляционных коробов, светильников, замена ламп на высоте.</p></div>
-      <div class="svc"><div class="num">05</div><h3>Мытьё окон</h3><p>Мойка окон и остекления на любой высоте — жилые и коммерческие объекты.</p></div>
-      <div class="svc"><div class="num">06</div><h3>Демонтаж и монтаж</h3><p>Наружные кондиционеры, демонтаж рекламы и полифасадов.</p></div>
-      <div class="svc"><div class="num">07</div><h3>Фасадное остекление</h3><p>Ремонт: устранение протечек, продуваний, замена стеклопакетов.</p></div>
-      <div class="svc"><div class="num">08</div><h3>Негабаритные грузы</h3><p>Подъём плитки, столешниц, конструкций, украшений и других грузов.</p></div>
-      <div class="svc"><div class="num">09</div><h3>Водостоки и желоба</h3><p>Прочистка водосточных труб, очистка желобов от листвы и мусора.</p></div>
-      <div class="svc"><div class="num">10</div><h3>Промышленная покраска</h3><p>Покраска цехов, ангаров и промышленных помещений.</p></div>
-      <div class="svc"><div class="num">11</div><h3>Снег и сосульки</h3><p>Чистка снега и сосулек с кровель и карнизов в зимний период.</p></div>
-      <div class="svc"><div class="num">12</div><h3>Индивидуальные задачи</h3><p>Нестандартные высотные работы — обсудим и найдём решение.</p></div>
+      <div class="svc"><div class="num">02</div><h3>Монтаж ограждающих конструкций</h3><p>Монтаж ограждающих конструкций и элементов фасадов на высоте.</p></div>
+      <div class="svc"><div class="num">03</div><h3>Металлоконструкции</h3><p>Монтаж и монтажно-высотные работы на металлических конструкциях зданий.</p></div>
+      <div class="svc"><div class="num">04</div><h3>Покраска фасадов</h3><p>Покраска жилых и промышленных зданий, фасадов и металлоконструкций.</p></div>
+      <div class="svc"><div class="num">05</div><h3>Вентиляция и освещение</h3><p>Монтаж вентиляционных коробов, светильников и систем освещения на высоте.</p></div>
+      <div class="svc"><div class="num">06</div><h3>Демонтаж и монтаж</h3><p>Наружные кондиционеры, демонтаж рекламы, полифасадов и других конструкций.</p></div>
+      <div class="svc"><div class="num">07</div><h3>Водостоки и желоба</h3><p>Прочистка водосточных труб и очистка желобов от листвы и мусора.</p></div>
+      <div class="svc"><div class="num">08</div><h3>Снег и сосульки</h3><p>Очистка кровель и карнизов от снега и сосулек в зимний период.</p></div>
+      <div class="svc"><div class="num">09</div><h3>Индивидуальные задачи</h3><p>Нестандартные высотные работы — обсудим задачу и подберём решение.</p></div>
     </div>
   </div>
 </section>
@@ -618,7 +617,7 @@ document.addEventListener('click', function(event) {
     <div class="section-head">
       <div class="eyebrow">Почему мы</div>
       <h2>Работаем чётко и без сюрпризов</h2>
-      <p>Собственная бригада, вся необходимая техника и полное соблюдение техники безопасности на каждом объекте.</p>
+      <p>Собственная бригада с опытом работы более 10 лет. Строго соблюдаем технику безопасности и гарантируем высокое качество на каждом объекте.</p>
     </div>
     <div class="why">
       <div class="why-card">
@@ -665,32 +664,28 @@ document.addEventListener('click', function(event) {
     <div class="section-head">
       <div class="eyebrow">Наши работы</div>
       <h2>Объекты и направления</h2>
-      <p>Фото последних объектов — в нашей группе ВКонтакте. Вот направления, с которыми мы работаем чаще всего.</p>
+      <p>Фотографии выполненных работ PROMAX: монтаж, покраска, ремонт фасадов, освещение и огнезащита.</p>
     </div>
     <div class="gallery">
-      <div class="g-item tall g1">
-        <img src="image/M_X1eSHELwC_s8pSlW3lg2Nsqn6Ugcmkhs9eI9eDO7miYLUUnyyhC60-5BnIAvxGj3t_soR482mzTzsLeTLP0WP0.jpg" alt="Покраска фасадов" loading="lazy" onerror="this.style.display='none'">
-        <span>Покраска фасадов</span>
+      <div class="g-item tall">
+        <img src="image/work-sandwich-panels.jpg" alt="Монтаж сэндвич-панелей" loading="lazy">
+        <span>Монтаж сэндвич-панелей</span>
       </div>
-      <div class="g-item g2">
-        <img src="image/BgBJZv26ysVScPq9_JH3oAmVDDUsZsO3FOXCsCOd9FMgATdJ6qHJaak2EJnePBsOfi446C0SAHT5eG7se4Dfka4A.jpg" alt="Металлоконструкции" loading="lazy" onerror="this.style.display='none'">
-        <span>Металлоконструкции</span>
+      <div class="g-item">
+        <img src="image/work-industrial-painting.jpg" alt="Покраска зданий на территории промышленных предприятий" loading="lazy">
+        <span>Покраска зданий на территории промышленных предприятий</span>
       </div>
-      <div class="g-item g3">
-        <img src="image/b17ogP0gWrB3nk3yrjZ4m5ZN9m345tR7cQ_F16l6DEfMdRD3GU3xckXW9E5IpJ3s1BpodF4tQCK82B5ZeJNEvOT_.jpg" alt="Мойка окон" loading="lazy" onerror="this.style.display='none'">
-        <span>Мойка окон</span>
+      <div class="g-item">
+        <img src="image/work-ventilated-facade.jpg" alt="Ремонтные работы на вентилируемом фасаде" loading="lazy">
+        <span>Ремонтные работы на вентилируемом фасаде</span>
       </div>
-      <div class="g-item g4">
-        <img src="image/8imZeaJkBTnt911L6tYN8wOzFiZnUAeRE4j8YCh3Yzjg-5jGbHWVAuhfmkPR8bBm7Gn39lxq52VsceuMdSiCsCek.jpg" alt="Демонтаж рекламы" loading="lazy" onerror="this.style.display='none'">
-        <span>Демонтаж рекламы</span>
+      <div class="g-item">
+        <img src="image/work-contour-lighting.jpg" alt="Монтаж контурного освещения" loading="lazy">
+        <span>Монтаж контурного освещения</span>
       </div>
-      <div class="g-item tall g5">
-        <img src="image/IMG_1125.jpg" alt="Сэндвич-панели" loading="lazy" onerror="this.style.display='none'">
-        <span>Сэндвич-панели</span>
-      </div>
-      <div class="g-item g6">
-        <img src="image/IMG_0401.jpg" alt="Чистка кровель" loading="lazy" onerror="this.style.display='none'">
-        <span>Чистка кровель</span>
+      <div class="g-item tall">
+        <img src="image/work-fire-protection-tank.jpg" alt="Огнезащита топливного резервуара" loading="lazy">
+        <span>Огнезащита топливного резервуара</span>
       </div>
     </div>
   </div>
@@ -770,9 +765,10 @@ document.addEventListener('click', function(event) {
           <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <div><b>География работ</b>
             <div class="cities">
+              <span class="city-pill">Челябинская область</span>
               <span class="city-pill">Челябинск</span>
               <span class="city-pill">Екатеринбург</span>
-              <span class="city-pill">Москва</span>
+              <span class="city-pill">Владивосток</span>
             </div>
           </div>
         </div>
@@ -792,7 +788,7 @@ document.addEventListener('click', function(event) {
     <a href="#top" class="logo" aria-label="PROMAX">
       <img src="image/logo.png" alt="PROMAX">
     </a>
-    <p>2026 PROMAX | Высотные работы | Челябинск / Екатеринбург / Москва.</p>
+    <p>2026 PROMAX | Высотные работы | Челябинская область / Челябинск / Екатеринбург / Владивосток.</p>
     <a class="btn ghost" href="https://vk.ru/club240153067" data-metrika-goal="vk_click" target="_blank" rel="noopener" style="padding:9px 16px;font-size:12px;">VK</a>
   </div>
 </footer>
