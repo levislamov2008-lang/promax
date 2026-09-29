@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://levislam2008-lang.github.io/promax/sitemap.xml
+Sitemap: https://promax74.ru/sitemap.xml
