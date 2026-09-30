@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>PROMAX | Высотные работы | Челябинск · Екатеринбург · Владивосток</title>
+<title>PROMAX | Высотные работы </title>
 <meta name="description" content="PROMAX — промышленный альпинизм и высотные работы: монтаж сэндвич-панелей и ограждающих конструкций, покраска зданий и фасадов, ремонт вентилируемых фасадов, контурное освещение и огнезащита резервуаров. Челябинская область, Челябинск, Екатеринбург, Владивосток.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="author" content="PROMAX — Высотные работы">
@@ -62,7 +62,6 @@
     opacity:.9;
   }
 
-  /* ===================== HEADER ===================== */
   header{
     position:sticky; top:0; z-index:50;
     padding-top:env(safe-area-inset-top,0px);
@@ -120,7 +119,6 @@
   .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line);}
   .btn.ghost:hover{border-color:var(--accent);color:var(--accent);}
 
-  /* ===================== HERO ===================== */
   .hero{
     position:relative;
     padding:96px 0 104px;
@@ -162,7 +160,6 @@
   }
   .rig .tag b{color:var(--ink);display:block;font-family:'Oswald';text-transform:uppercase;font-size:15px;margin-bottom:2px;}
 
-  /* ===================== SECTIONS ===================== */
   section{padding:96px 0;}
   .section-head{max-width:640px;margin-bottom:56px;}
   .section-head .eyebrow{margin-bottom:16px;}
@@ -188,53 +185,82 @@
   .step h3{font-size:16px;font-weight:600;text-transform:none;letter-spacing:0;margin:0 0 10px;}
   .step p{color:var(--sub);font-size:14px;line-height:1.55;margin:0;}
 
-  .gallery{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    grid-auto-rows:220px;
-    gap:12px;
+  .gallery {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 16px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--line);
   }
-  .g-item{
-    position:relative;
-    border-radius:4px;
-    overflow:hidden;
-    border:1px solid var(--line);
-    display:flex;
-    align-items:flex-end;
-    padding:16px;
-    background:linear-gradient(155deg,#1a1f26,#12151a);
+
+  .gallery::-webkit-scrollbar {
+    height: 6px;
   }
-  .g-item.tall{grid-row:span 2;}
-  .g-item img{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center;
-    display:block;
+
+  .gallery::-webkit-scrollbar-track {
+    background: var(--line);
+    border-radius: 10px;
   }
-  .g-item::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(180deg,rgba(0,0,0,0) 42%, rgba(0,0,0,.82) 100%);
-    pointer-events:none;
+
+  .gallery::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
   }
-  .g-item span{
-    position:relative;
-    z-index:2;
-    font-size:13px;
-    font-weight:600;
-    color:#fff;
-    text-shadow:0 2px 8px rgba(0,0,0,.6);
+
+  .gallery::-webkit-scrollbar-thumb:hover {
+    background: var(--accent2);
+  }
+
+  .g-item {
+    flex: 0 0 360px;
+    scroll-snap-align: start;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--card);
+  }
+
+  .g-img-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+
+  .g-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .g-item:hover .g-img-box img {
+    transform: scale(1.04);
+  }
+
+  .g-img-box span {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px 18px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.35;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(180deg, transparent 40%, rgba(12, 15, 18, 0.88) 100%);
   }
 
   .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
   .news-card{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;}
   .news-head{display:flex;align-items:center;gap:10px;padding:16px 18px 0;}
-  .news-ava{width:36px;height:36px;border-radius:50%;background:linear-gradient(140deg,var(--accent),#c94500);display:flex;align-items:center;justify-content:center;font-family:'Oswald';font-weight:700;font-size:13px;color:#111;flex-shrink:0;}
-    .news-ava{
+  .news-ava{
     width:36px;height:36px;border-radius:50%;
     background:linear-gradient(140deg,var(--accent),#c94500);
     display:flex;align-items:center;justify-content:center;
@@ -296,7 +322,6 @@
   .foot-row .logo img{height:44px;max-width:180px;}
   footer p{color:var(--sub);font-size:12.5px;margin:0;}
 
-  /* ===================== ПЛАНШЕТ ===================== */
   @media (max-width:1100px){
     :root{--pad:32px;}
     .nav{gap:24px;padding:12px 0;min-height:76px;}
@@ -315,12 +340,10 @@
     .section-head{margin-bottom:44px;}
     .hero-grid{gap:40px;}
     .why{grid-template-columns:repeat(2,1fr);}
-    .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px;}
     .news-grid{grid-template-columns:repeat(2,1fr);}
     .contact-wrap{gap:40px;}
   }
 
-  /* Узкий планшет: меню скроллится в одну строку */
   @media (max-width:900px){
     :root{--pad:24px;}
     .nav{gap:16px;}
@@ -347,11 +370,9 @@
     .cta-panel{max-width:640px;}
   }
 
-  /* ===================== МОБИЛА: две строки ===================== */
   @media (max-width:720px){
     :root{--pad:18px;}
 
-    /* Мобильная шапка: логотип + звонок, меню отдельной строкой */
     header{overflow:hidden;}
     .nav{
       width:100%;
@@ -412,28 +433,21 @@
     .hero-stats{gap:24px 32px;}
     .stat-num{font-size:28px;}
 
+    .g-item {
+      flex: 0 0 82vw; 
+    }
+
+    .g-img-box span {
+      padding: 16px 14px;
+      font-size: 14px;
+    }
+
     .services,
     .why,
     .process,
     .news-grid{grid-template-columns:1fr;}
     .process{gap:32px;}
 
-    .gallery{
-      grid-template-columns:1fr;
-      grid-auto-rows:auto;
-      gap:12px;
-    }
-    .g-item,
-    .g-item.tall{
-      grid-row:span 1;
-      aspect-ratio:16/10;
-      min-height:0;
-    }
-    .g-item{padding:14px;}
-    .g-item span{font-size:13px;}
-    .news-thumb{height:200px;}
-
-    /* На телефоне подпись не перекрывает человека в иллюстрации */
     .rig{max-width:none;}
     .rig .tag{
       left:14px;
@@ -455,8 +469,6 @@
   }
 
   @media (max-width:380px){
-    .gallery{grid-template-columns:1fr;}
-    .g-item.tall{grid-row:span 1;}
     .logo img{height:38px;}
   }
 </style>
@@ -493,7 +505,6 @@
 }
 </script>
 
-<!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -505,7 +516,6 @@
     ym(113174495, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/113174495" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 
 <script>
 document.addEventListener('click', function(event) {
@@ -538,7 +548,7 @@ document.addEventListener('click', function(event) {
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Промышленный альпинизм | Челябинская область / Челябинск / Екатеринбург</div>
+      <div class="eyebrow">Высотные работы | Челябинская область / Челябинск / Екатеринбург </div>
       <h1>Высотные работы<br>любой <em>сложности</em></h1>
       <p class="lead">Команда промышленных альпинистов с допусками и удостоверениями. Монтаж сэндвич-панелей, покраска фасадов, монтаж ограждающих конструкций и другие работы на высоте — быстро, безопасно, по договору.</p>
       <div class="hero-actions">
@@ -547,7 +557,7 @@ document.addEventListener('click', function(event) {
       </div>
       <div class="hero-stats">
         <div><div class="stat-num">100%</div><div class="stat-label">Допуски и удостоверения альпинистов</div></div>
-        <div><div class="stat-num">3</div><div class="stat-label">Города: Челябинск, Екатеринбург</div></div>
+        <div><div class="stat-num">6</div><div class="stat-label">Городов: Челябинск, Екатеринбург, Москва, Владивосток, Когалым, Белорецк</div></div>
         <div><div class="stat-num">Любая</div><div class="stat-label">Форма оплаты</div></div>
       </div>
     </div>
@@ -665,26 +675,41 @@ document.addEventListener('click', function(event) {
       <h2>Объекты и направления</h2>
       <p>Фотографии выполненных работ PROMAX: монтаж, покраска, ремонт фасадов, освещение и огнезащита.</p>
     </div>
+    
     <div class="gallery">
-      <div class="g-item tall">
-        <img src="image/work-sandwich-panels.jpg" alt="Монтаж сэндвич-панелей" loading="lazy">
-        <span>Монтаж сэндвич-панелей</span>
-      </div>
       <div class="g-item">
-        <img src="image/work-industrial-painting.jpg" alt="Покраска зданий на территории промышленных предприятий" loading="lazy">
-        <span>Покраска зданий на территории промышленных предприятий</span>
+        <div class="g-img-box">
+          <img src="image/work-sandwich-panels.jpg" alt="Монтаж сэндвич-панелей" loading="lazy">
+          <span>Монтаж сэндвич-панелей</span>
+        </div>
       </div>
+
       <div class="g-item">
-        <img src="image/work-ventilated-facade.jpg" alt="Ремонтные работы на вентилируемом фасаде" loading="lazy">
-        <span>Ремонтные работы на вентилируемом фасаде</span>
+        <div class="g-img-box">
+          <img src="image/work-industrial-painting.jpg" alt="Покраска зданий на территории промышленных предприятий" loading="lazy">
+          <span>Покраска зданий на территории промышленных предприятий</span>
+        </div>
       </div>
+
       <div class="g-item">
-        <img src="image/work-contour-lighting.jpg" alt="Монтаж контурного освещения" loading="lazy">
-        <span>Монтаж контурного освещения</span>
+        <div class="g-img-box">
+          <img src="image/work-ventilated-facade.jpg" alt="Ремонтные работы на вентилируемом фасаде" loading="lazy">
+          <span>Ремонтные работы на вентилируемом фасаде</span>
+        </div>
       </div>
-      <div class="g-item tall">
-        <img src="image/work-fire-protection-tank.jpg" alt="Огнезащита топливного резервуара" loading="lazy">
-        <span>Огнезащита топливного резервуара</span>
+
+      <div class="g-item">
+        <div class="g-img-box">
+          <img src="image/work-contour-lighting.jpg" alt="Монтаж контурного освещения" loading="lazy">
+          <span>Монтаж контурного освещения</span>
+        </div>
+      </div>
+
+      <div class="g-item">
+        <div class="g-img-box">
+          <img src="image/work-fire-protection-tank.jpg" alt="Огнезащита топливного резервуара" loading="lazy">
+          <span>Огнезащита топливного резервуара</span>
+        </div>
       </div>
     </div>
   </div>
@@ -700,11 +725,11 @@ document.addEventListener('click', function(event) {
     <div class="news-grid">
       <div class="news-card">
         <div class="news-head">
-  <div class="news-ava">
-    <img src="image/icon.png" alt="PROMAX" loading="lazy">
-  </div>
-  <div class="news-meta"><b>PROMAX | Высотные работы </b><span>Группа ВКонтакте</span></div>
-</div>
+          <div class="news-ava">
+            <img src="image/icon.png" alt="PROMAX" loading="lazy">
+          </div>
+          <div class="news-meta"><b>PROMAX | Высотные работы </b><span>Группа ВКонтакте</span></div>
+        </div>
         <div class="news-thumb">
           <img src="image/UIN2REWebpLAAWUwcqdk6HchjMPlHecSmsJOFsUBc_T3NYldG8l1wO4a7PqgT1Bi_WQODu8S1f1JvZBA3damyvV3.jpg" alt="Новый объект PROMAX" loading="lazy" onerror="this.style.display='none'">
         </div>
@@ -713,11 +738,11 @@ document.addEventListener('click', function(event) {
       </div>
       <div class="news-card">
         <div class="news-head">
-  <div class="news-ava">
-    <img src="image/icon.png" alt="PROMAX" loading="lazy">
-  </div>
-  <div class="news-meta"><b>PROMAX | Высотные работы </b><span>Группа ВКонтакте</span></div>
-</div>
+          <div class="news-ava">
+            <img src="image/icon.png" alt="PROMAX" loading="lazy">
+          </div>
+          <div class="news-meta"><b>PROMAX | Высотные работы </b><span>Группа ВКонтакте</span></div>
+        </div>
         <div class="news-thumb">
           <img src="image/jKKEWIuHNi0AEuUI1-mRXUqszxSnr-5JGGigl2kvCgcTNQPswnvAf76nJghFKCcnFgu009_UsVwU9wM5rcCuBKfP.jpg" alt="Монтаж вентиляции PROMAX" loading="lazy" onerror="this.style.display='none'">
         </div>
@@ -726,11 +751,11 @@ document.addEventListener('click', function(event) {
       </div>
       <div class="news-card">
         <div class="news-head">
-  <div class="news-ava">
-    <img src="image/icon.png" alt="PROMAX" loading="lazy">
-  </div>
-  <div class="news-meta"><b>PROMAX | Высотные работы </b><span>Группа ВКонтакте</span></div>
-</div>
+          <div class="news-ava">
+            <img src="image/icon.png" alt="PROMAX" loading="lazy">
+          </div>
+          <div class="news-meta"><b>PROMAX | Высотные работы </b><span>Группа ВКонтакте</span></div>
+        </div>
         <div class="news-thumb">
           <img src="image/VtePomNaO8XNhFq6B_96Dw-8PtoJC51orxJdoKDVmfYJKv-rN1PbYzRUydcRFn9qbHrcM_c3drC7m1h6lT1yhQrD.jpg" alt="Чистка кровель PROMAX" loading="lazy" onerror="this.style.display='none'">
         </div>
@@ -765,8 +790,11 @@ document.addEventListener('click', function(event) {
           <div><b>География работ</b>
             <div class="cities">
               <span class="city-pill">Челябинская область</span>
-              <span class="city-pill">Челябинск</span>
+              <span class="city-pill">Москва</span>
               <span class="city-pill">Екатеринбург</span>
+              <span class="city-pill">Владивосток</span>
+              <span class="city-pill">Когалым</span>
+              <span class="city-pill">Белорецк</span>
               </div>
           </div>
         </div>
@@ -786,7 +814,7 @@ document.addEventListener('click', function(event) {
     <a href="#top" class="logo" aria-label="PROMAX">
       <img src="image/logo.png" alt="PROMAX">
     </a>
-    <p>2026 PROMAX | Высотные работы | Челябинская область / Челябинск / Екатеринбург.</p>
+    <p>2026 PROMAX | Высотные работы | Челябинская область / Челябинск / Екатеринбург </p>
     <a class="btn ghost" href="https://vk.ru/club240153067" data-metrika-goal="vk_click" target="_blank" rel="noopener" style="padding:9px 16px;font-size:12px;">VK</a>
   </div>
 </footer>
