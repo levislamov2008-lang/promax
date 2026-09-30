@@ -310,6 +310,64 @@
   .phone-big:hover{color:var(--accent);}
   .phone-list{display:flex;flex-direction:column;gap:6px;}
   .phone-list .phone-big{line-height:1.15;}
+
+  .call-modal[hidden]{display:none;}
+  .call-modal{
+    position:fixed;inset:0;z-index:100;
+    display:flex;align-items:center;justify-content:center;
+    padding:20px;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+  }
+  .call-dialog{
+    width:min(420px,100%);
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:26px;
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+  }
+  .call-dialog h3{
+    margin:0 0 8px;
+    font-size:24px;
+  }
+  .call-dialog p{
+    margin:0 0 20px;
+    color:var(--sub);
+    font-size:14px;
+    line-height:1.5;
+  }
+  .call-options{display:flex;flex-direction:column;gap:10px;}
+  .call-option{
+    display:flex;align-items:center;justify-content:center;
+    width:100%;min-height:50px;
+    padding:13px 18px;
+    border-radius:4px;
+    background:var(--accent);
+    color:#111;
+    font-weight:800;
+    font-size:15px;
+    border:1px solid var(--accent);
+  }
+  .call-option:hover{
+    background:transparent;color:var(--accent);
+  }
+  .call-close{
+    width:100%;margin-top:12px;
+    min-height:46px;padding:12px 18px;
+    border-radius:4px;
+    background:transparent;color:var(--ink);
+    border:1px solid var(--line);
+    font:inherit;font-weight:700;
+    cursor:pointer;
+  }
+  .call-close:hover{border-color:var(--accent);color:var(--accent);}
+  @media (max-width:720px){
+    .call-dialog{padding:22px;}
+    .call-dialog h3{font-size:22px;}
+  }
+
   .cities{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
   .city-pill{border:1px solid var(--line);padding:6px 14px;border-radius:20px;font-size:13px;color:var(--sub);}
 
@@ -557,6 +615,50 @@ document.addEventListener('click', function(event) {
   }
 });
 </script>
+
+<script>
+(function(){
+  var modal = document.getElementById('callModal');
+  if (!modal) return;
+
+  function openModal(){
+    modal.hidden = false;
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(){
+    modal.hidden = true;
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('click', function(event){
+    var openButton = event.target.closest('.js-call-popup');
+    if (openButton) {
+      event.preventDefault();
+      openModal();
+      return;
+    }
+
+    var closeButton = event.target.closest('[data-call-close]');
+    if (closeButton) {
+      event.preventDefault();
+      closeModal();
+      return;
+    }
+
+    if (event.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', function(event){
+    if (event.key === 'Escape' && !modal.hidden) closeModal();
+  });
+})();
+</script>
+
 </head>
 <body>
 
@@ -572,7 +674,7 @@ document.addEventListener('click', function(event) {
       <a href="#news">Новости</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <a class="btn" href="tel:+79940175493" data-metrika-goal="phone_click">Позвонить</a>
+    <button class="btn js-call-popup" type="button">Позвонить</button>
   </div>
   <div class="tape"></div>
 </header>
@@ -584,8 +686,7 @@ document.addEventListener('click', function(event) {
       <h1>Высотные работы<br>любой <em>сложности</em></h1>
       <p class="lead">Команда промышленных альпинистов с допусками и удостоверениями. Монтаж сэндвич-панелей, покраска фасадов, монтаж ограждающих конструкций и другие работы на высоте — быстро, безопасно, по договору.</p>
       <div class="hero-actions">
-        <a class="btn" href="tel:+79940175493" data-metrika-goal="phone_click">+7 (994) 017-54-93</a>
-        <a class="btn ghost" href="tel:+79128083073" data-metrika-goal="phone_click">+7 (912) 808-30-73</a>
+        <button class="btn js-call-popup" type="button">Позвонить</button>
         <a class="btn ghost" href="https://vk.ru/club240153067" data-metrika-goal="vk_click" target="_blank" rel="noopener">Группа ВКонтакте →</a>
       </div>
       <div class="hero-stats">
@@ -839,8 +940,7 @@ document.addEventListener('click', function(event) {
     <div class="cta-panel">
       <h3>Нужен расчёт по объекту?</h3>
       <p>Позвоните напрямую или напишите в сообщения группы ВКонтакте — расскажите про задачу, пришлём примерную стоимость и сроки.</p>
-      <a class="btn" href="tel:+79940175493" data-metrika-goal="phone_click">Позвонить: +7 (994) 017-54-93</a>
-      <a class="btn ghost" href="tel:+79128083073" data-metrika-goal="phone_click">Позвонить: +7 (912) 808-30-73</a>
+      <button class="btn js-call-popup" type="button">Позвонить</button>
       <a class="btn ghost" href="https://vk.ru/club240153067" data-metrika-goal="vk_click" target="_blank" rel="noopener">Написать в сообщения ВК</a>
     </div>
   </div>
@@ -855,6 +955,19 @@ document.addEventListener('click', function(event) {
     <a class="btn ghost" href="https://vk.ru/club240153067" data-metrika-goal="vk_click" target="_blank" rel="noopener" style="padding:9px 16px;font-size:12px;">VK</a>
   </div>
 </footer>
+
+
+<div class="call-modal" id="callModal" hidden aria-hidden="true">
+  <div class="call-dialog" role="dialog" aria-modal="true" aria-labelledby="callModalTitle">
+    <h3 id="callModalTitle">Кому позвонить?</h3>
+    <p>Выберите номер — телефон откроет стандартный экран звонка.</p>
+    <div class="call-options">
+      <a class="call-option" href="tel:+79940175493" data-metrika-goal="phone_click">+7 (994) 017-54-93</a>
+      <a class="call-option" href="tel:+79128083073" data-metrika-goal="phone_click">+7 (912) 808-30-73</a>
+    </div>
+    <button class="call-close" type="button" data-call-close>Закрыть</button>
+  </div>
+</div>
 
 </body>
 </html>
