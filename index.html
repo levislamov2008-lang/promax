@@ -342,6 +342,23 @@
     .why{grid-template-columns:repeat(2,1fr);}
     .news-grid{grid-template-columns:repeat(2,1fr);}
     .contact-wrap{gap:40px;}
+
+    /* На планшете блок работ — вертикальный список, без горизонтальной галереи */
+    .gallery{
+      flex-direction:column;
+      overflow-x:visible;
+      overflow-y:visible;
+      scroll-snap-type:none;
+      gap:16px;
+      padding-bottom:0;
+      scrollbar-width:none;
+    }
+    .gallery::-webkit-scrollbar{display:none;}
+    .g-item{
+      flex:0 0 auto;
+      width:100%;
+      scroll-snap-align:none;
+    }
   }
 
   @media (max-width:900px){
@@ -433,8 +450,14 @@
     .hero-stats{gap:24px 32px;}
     .stat-num{font-size:28px;}
 
+    /* На телефоне блок работ остаётся вертикальным списком */
+    .gallery{
+      gap:14px;
+    }
+
     .g-item {
-      flex: 0 0 82vw; 
+      width:100%;
+      flex:0 0 auto;
     }
 
     .g-img-box span {
