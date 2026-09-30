@@ -103,6 +103,7 @@
   nav.links a{white-space:nowrap;transition:color .15s;}
   nav.links a:hover{color:var(--accent);}
   .nav > .btn{flex:0 0 auto;}
+  .nav > .js-call-popup{margin-left:auto;}
 
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -311,29 +312,61 @@
   .phone-list{display:flex;flex-direction:column;gap:6px;}
   .phone-list .phone-big{line-height:1.15;}
 
-  /* Меню выбора телефона — без JavaScript */
-  .call-menu{position:relative;display:inline-block;}
-  .call-menu > summary{list-style:none;}
-  .call-menu > summary::-webkit-details-marker{display:none;}
-  .call-menu .call-popover{
-    position:absolute;top:calc(100% + 10px);right:0;z-index:200;
-    width:min(360px,calc(100vw - 36px));padding:16px;
-    background:var(--card);border:1px solid var(--line);border-radius:8px;
-    box-shadow:0 18px 50px rgba(0,0,0,.45);
+  .call-modal[hidden]{display:none;}
+  .call-modal{
+    position:fixed;inset:0;z-index:100;
+    display:flex;align-items:center;justify-content:center;
+    padding:20px;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
   }
-  .call-popover-title{margin:0 0 10px;color:var(--ink);font-family:'Oswald',Arial,sans-serif;font-size:18px;text-transform:uppercase;}
-  .call-popover p{margin:0 0 12px;color:var(--sub);font-size:13px;line-height:1.45;}
-  .call-options{display:flex;flex-direction:column;gap:8px;}
-  .call-option{display:flex;align-items:center;justify-content:center;width:100%;min-height:48px;padding:12px 14px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink);font-family:'Oswald',Arial,sans-serif;font-size:18px;}
-  .call-option:hover{border-color:var(--accent);color:var(--accent);}
-  .call-menu[open] > summary{border-color:var(--accent);}
-  .hero-actions .call-menu{flex:0 0 auto;}
-  .cta-panel .call-menu{width:100%;}
-  .cta-panel .call-menu > summary{width:100%;}
+  .call-dialog{
+    width:min(420px,100%);
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:26px;
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+  }
+  .call-dialog h3{
+    margin:0 0 8px;
+    font-size:24px;
+  }
+  .call-dialog p{
+    margin:0 0 20px;
+    color:var(--sub);
+    font-size:14px;
+    line-height:1.5;
+  }
+  .call-options{display:flex;flex-direction:column;gap:10px;}
+  .call-option{
+    display:flex;align-items:center;justify-content:center;
+    width:100%;min-height:50px;
+    padding:13px 18px;
+    border-radius:4px;
+    background:var(--accent);
+    color:#111;
+    font-weight:800;
+    font-size:15px;
+    border:1px solid var(--accent);
+  }
+  .call-option:hover{
+    background:transparent;color:var(--accent);
+  }
+  .call-close{
+    width:100%;margin-top:12px;
+    min-height:46px;padding:12px 18px;
+    border-radius:4px;
+    background:transparent;color:var(--ink);
+    border:1px solid var(--line);
+    font:inherit;font-weight:700;
+    cursor:pointer;
+  }
+  .call-close:hover{border-color:var(--accent);color:var(--accent);}
   @media (max-width:720px){
-    header{overflow:visible;}
-    .hero-actions .call-menu{flex:1 1 100%;}
-    .hero-actions .call-menu > summary{width:100%;}
+    .call-dialog{padding:22px;}
+    .call-dialog h3{font-size:22px;}
   }
 
   .cities{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
@@ -418,7 +451,7 @@
   @media (max-width:720px){
     :root{--pad:18px;}
 
-    header{overflow:hidden;}
+    header{overflow:visible;}
     .nav{
       width:100%;
       min-width:0;
@@ -601,17 +634,7 @@ document.addEventListener('click', function(event) {
       <a href="#news">Новости</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <details class="call-menu">
-  <summary class="btn">Позвонить</summary>
-  <div class="call-popover">
-    <h4 class="call-popover-title">Кому позвонить?</h4>
-    <p>Выберите номер, чтобы открыть звонок на телефоне.</p>
-    <div class="call-options">
-      <a class="call-option" href="tel:+79940175493" data-metrika-goal="phone_click">+7 (994) 017-54-93</a>
-      <a class="call-option" href="tel:+79128083073" data-metrika-goal="phone_click">+7 (912) 808-30-73</a>
-    </div>
-  </div>
-</details>
+    <button class="btn js-call-popup" type="button">Позвонить</button>
   </div>
   <div class="tape"></div>
 </header>
@@ -623,17 +646,7 @@ document.addEventListener('click', function(event) {
       <h1>Высотные работы<br>любой <em>сложности</em></h1>
       <p class="lead">Команда промышленных альпинистов с допусками и удостоверениями. Монтаж сэндвич-панелей, покраска фасадов, монтаж ограждающих конструкций и другие работы на высоте — быстро, безопасно, по договору.</p>
       <div class="hero-actions">
-        <details class="call-menu">
-  <summary class="btn">Позвонить</summary>
-  <div class="call-popover">
-    <h4 class="call-popover-title">Кому позвонить?</h4>
-    <p>Выберите номер, чтобы открыть звонок на телефоне.</p>
-    <div class="call-options">
-      <a class="call-option" href="tel:+79940175493" data-metrika-goal="phone_click">+7 (994) 017-54-93</a>
-      <a class="call-option" href="tel:+79128083073" data-metrika-goal="phone_click">+7 (912) 808-30-73</a>
-    </div>
-  </div>
-</details>
+        <button class="btn js-call-popup" type="button">Позвонить</button>
         <a class="btn ghost" href="https://vk.ru/club240153067" data-metrika-goal="vk_click" target="_blank" rel="noopener">Группа ВКонтакте →</a>
       </div>
       <div class="hero-stats">
@@ -887,17 +900,7 @@ document.addEventListener('click', function(event) {
     <div class="cta-panel">
       <h3>Нужен расчёт по объекту?</h3>
       <p>Позвоните напрямую или напишите в сообщения группы ВКонтакте — расскажите про задачу, пришлём примерную стоимость и сроки.</p>
-      <details class="call-menu">
-  <summary class="btn">Позвонить</summary>
-  <div class="call-popover">
-    <h4 class="call-popover-title">Кому позвонить?</h4>
-    <p>Выберите номер, чтобы открыть звонок на телефоне.</p>
-    <div class="call-options">
-      <a class="call-option" href="tel:+79940175493" data-metrika-goal="phone_click">+7 (994) 017-54-93</a>
-      <a class="call-option" href="tel:+79128083073" data-metrika-goal="phone_click">+7 (912) 808-30-73</a>
-    </div>
-  </div>
-</details>
+      <button class="btn js-call-popup" type="button">Позвонить</button>
       <a class="btn ghost" href="https://vk.ru/club240153067" data-metrika-goal="vk_click" target="_blank" rel="noopener">Написать в сообщения ВК</a>
     </div>
   </div>
@@ -914,5 +917,55 @@ document.addEventListener('click', function(event) {
 </footer>
 
 
+<div class="call-modal" id="callModal" hidden aria-hidden="true">
+  <div class="call-dialog" role="dialog" aria-modal="true" aria-labelledby="callModalTitle">
+    <h3 id="callModalTitle">Кому позвонить?</h3>
+    <p>Выберите номер — телефон откроет стандартный экран звонка.</p>
+    <div class="call-options">
+      <a class="call-option" href="tel:+79940175493" data-metrika-goal="phone_click">+7 (994) 017-54-93</a>
+      <a class="call-option" href="tel:+79128083073" data-metrika-goal="phone_click">+7 (912) 808-30-73</a>
+    </div>
+    <button class="call-close" type="button" data-call-close>Закрыть</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var modal = document.getElementById('callModal');
+  if (!modal) return;
+
+  var openButtons = document.querySelectorAll('.js-call-popup');
+  var closeButton = modal.querySelector('[data-call-close]');
+
+  function openModal(event){
+    if (event) event.preventDefault();
+    modal.hidden = false;
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    if (closeButton) closeButton.focus();
+  }
+
+  function closeModal(event){
+    if (event) event.preventDefault();
+    modal.hidden = true;
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+
+  openButtons.forEach(function(button){
+    button.addEventListener('click', openModal);
+  });
+
+  if (closeButton) closeButton.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', function(event){
+    if (event.target === modal) closeModal(event);
+  });
+
+  document.addEventListener('keydown', function(event){
+    if (event.key === 'Escape' && !modal.hidden) closeModal(event);
+  });
+})();
+</script>
 </body>
 </html>
